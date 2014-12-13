@@ -56,7 +56,7 @@ handle_http_request(httpd *webserver, request *r)
 		httpdProcessRequest(webserver, r);
 		debug(LOG_DEBUG, "Returned from httpdProcessRequest() for %s", r->clientAddr);
 	} else {
-		debug(LOG_DEBUG, "No valid request received from %s", r->clientAddr);
+		debug(LOG_DEBUG, "No valid request received from %si %s", r->clientAddr, r->httpReq->host);
 	}
 	httpdEndRequest(r);
 	debug(LOG_DEBUG, "Ended request from %s", r->clientAddr);
